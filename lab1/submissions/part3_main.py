@@ -14,8 +14,18 @@ arrs = [i for i in arrs if len(i[0])>0]
 #2. Convert arr1 and arr2 to strings (don't forget to include square brackets). E.g., arr1 = "[1.3, 2.4, 4.2, 5.0]"
 
 # Please insert your code here
+arr1 = []
+arr2 = []
+skipHeader = 1
+for row in arrs: 
+   if skipHeader == 1:
+      skipHeader = 0
+      continue
+   arr1.append(row[0])
+   arr2.append(row[1])
 
-
+arr1 = "[" + ", ".join(arr1) + "]"
+arr2 = "[" + ", ".join(arr2) + "]"
 
 
 #=== call C part === (Please don't modify code below this line)

@@ -99,16 +99,10 @@ double get_second_moment(double* sample1, double* sample2, double mean1, double 
    for (int i = 0; i < n; i++) 
    {
       // add square of differences between element and mean 
-      total_variance_sum += (sample1[i] - mean1) * (sample1[i] - mean1);
+      total_variance_sum += (sample1[i] - mean1) * (sample2[i] - mean2);
    }
    
-   // calculate sum of squared differences for sample 2, add to existing total variance
-   for (int i = 0; i < n; i++) 
-   {
-      // add square of differences between element and mean 
-      total_variance_sum += (sample2[i] - mean2) * (sample2[i] - mean2);
-   }
-   return total_variance_sum / (2.0 * n); // divide by total n across both sample1 and sample2
+   return total_variance_sum / n; // divide by total n 
 }
 
 
