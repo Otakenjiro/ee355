@@ -40,5 +40,23 @@ Question 5:
    
    
 Problem 2: 
+Files: part2_main.c 
 
+Covariance calculator function 
+Equation for the calculator was taken and adapted for software from the 
+Wikipedia page: https://en.wikipedia.org/wiki/Covariance, 
+under "Calculating the sample covariance". 
+
+
+Problem 3: 
+Files: part3_main.py, part3_calc_cov_and_var.c (copy of part2_main.c), 
+data_table.csv
+
+Covariance calculator for a .csv file using covariance calculator function
+file from problem 2. Python file acts as a front end for extracting the 
+values from the cells in the .csv file, and passes the values to the .c 
+covariance calculator file, and then displays the sample covariance. 
+
+The given data_table.csv file provided this output: 
+"The Cov of two input arrays is -18.17, and their own Var are 100.29 and 108.78." 
 
