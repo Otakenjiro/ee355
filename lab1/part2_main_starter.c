@@ -46,9 +46,15 @@ int  main (int argc, char** argv)
 
 int get_sample_num(char* in_arr){
    // determine the sample number by counting space
-   
-    
-    
+   int space_count = 0;
+   for (int i = 0; in_arr[i] != '\0'; i++) // count until it hits the null pointer at the end of an array
+   {
+      if (in_arr[i] == ' ')
+      {
+         space_count++;
+      }
+   }
+   return space_count + 1; // account for last "space" that doesn't exist after a number in an array 
 }
 
 void get_samples(char* in_arr, int num_sample, double* sample){
@@ -77,15 +83,32 @@ void get_samples(char* in_arr, int num_sample, double* sample){
 
 double get_mean(double* sample, int n){
    // compute the mean value of input array (sample), given its length (n)
-    
-    
+   double sum = 0.0; 
+   for (int i = 0; i < n; i++) 
+   {
+      sum += sample[i]; // sum all numbers in the array 
+   }
+   return sum / n; // divide by length for average
 }
 
 double get_second_moment(double* sample1, double* sample2, double mean1, double mean2, int n){
    // compute the second moment of two input arrays (sample1 and sample2), given their mean values (mean1 and mean2) and the length (n)
+   double total_variance_sum = 0.0;
    
-    
-    
+   // calculate sum of squared differences for sample1
+   for (int i = 0; i < n; i++) 
+   {
+      // add square of differences between element and mean 
+      total_variance_sum += (sample1[i] - mean1) * (sample1[i] - mean1);
+   }
+   
+   // calculate sum of squared differences for sample 2, add to existing total variance
+   for (int i = 0; i < n; i++) 
+   {
+      // add square of differences between element and mean 
+      total_variance_sum += (sample2[i] - mean2) * (sample2[i] - mean2);
+   }
+   return total_variance_sum / (2.0 * n); // divide by total n across both sample1 and sample2
 }
 
 
